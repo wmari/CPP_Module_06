@@ -6,16 +6,35 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:40:46 by wmari             #+#    #+#             */
-/*   Updated: 2024/08/29 12:56:26 by wmari            ###   ########.fr       */
+/*   Updated: 2024/08/29 17:39:56 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConvert.hpp"
 
+ScalarConvert::ScalarConvert()
+{
+	return ;
+}
+
+ScalarConvert::ScalarConvert(ScalarConvert &copy)
+{
+	return ;
+}
+
+ScalarConvert::~ScalarConvert()
+{
+	return ;
+}
+
+ScalarConvert &ScalarConvert::operator=(ScalarConvert &copy)
+{
+	return ;
+}
 void	ScalarConvert::convert(std::string arg)
 {
 	int type;
-	if (arg.compare("inf") == 0 || arg.compare("-inff") == 0 || arg.compare("+inff") == 0 || arg.compare("-inf") == 0 ||
+	if (arg.compare("-inff") == 0 || arg.compare("+inff") == 0 || arg.compare("-inf") == 0 ||
 		arg.compare("+inf") == 0 || arg.compare("nan") == 0)
 		type = INF;
 	else if (arg.length() == 1 &&
@@ -51,5 +70,11 @@ void	ScalarConvert::convert(std::string arg)
 		type = CHAR;
 	else
 		type = ERROR;
+
+	if (type == INT || type == DOUBLE || type == FLOAT)
+	{
+		double argdouble;
+	}
+
 }
 
