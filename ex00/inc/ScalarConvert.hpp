@@ -6,7 +6,7 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:41:04 by wmari             #+#    #+#             */
-/*   Updated: 2024/08/30 14:47:34 by wmari            ###   ########.fr       */
+/*   Updated: 2024/08/30 15:25:25 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <cstdlib>
 #include <limits>
 #include <climits>
-#include <iomanip>
 #include <cctype>
+#include <iomanip>
 
 
 enum type
@@ -85,7 +85,8 @@ public:
 
 		if (type == INT && (atol(arg.c_str()) > INT_MAX && atol(arg.c_str()) < INT_MIN))
 			type = DOUBLE;
-		std::cout << std::setprecision(13);
+
+		std::cout << std::fixed;
 		if (type == INT)
 		{
 			int num = atoi(arg.c_str());
