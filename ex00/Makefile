@@ -6,17 +6,18 @@
 #    By: wmari <wmari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 11:36:36 by wmari             #+#    #+#              #
-#    Updated: 2024/07/29 11:37:06 by wmari            ###   ########.fr        #
+#    Updated: 2024/08/30 13:46:40 by wmari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Convert
+NAME	=	convert
 
 SRC_DIR	=	src/
 OBJ_DIR	=	obj/
-INC_DIR	=	includes/
+INC_DIR	=	inc/
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp\
+			ScalarConvert.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -32,7 +33,7 @@ all	:	$(NAME)
 $(NAME) :	$(OBJ_PATH)
 			$(CC) $(CFLAGS) $(OBJ_PATH) -o $(NAME)
 
-$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp $(INC_DIR)
 			@mkdir -p $(OBJ_DIR)
 			$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
 
