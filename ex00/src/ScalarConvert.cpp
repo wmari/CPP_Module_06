@@ -6,7 +6,7 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:40:46 by wmari             #+#    #+#             */
-/*   Updated: 2024/09/02 15:50:50 by wmari            ###   ########.fr       */
+/*   Updated: 2024/09/02 16:08:30 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,7 @@ void ScalarConvert::convert(std::string arg)
 		type = DOUBLE;
 
 	if (type == DOUBLE && (strtold(arg.c_str(), NULL) > DBL_MAX || strtold(arg.c_str(), NULL) < -DBL_MAX))
-	{
-		std::cout << "coucou" << std::endl;
 		type = ERROR;
-	}
 
 	if (type == INT)
 	{
