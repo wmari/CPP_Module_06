@@ -6,7 +6,7 @@
 #    By: wmari <wmari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 11:36:36 by wmari             #+#    #+#              #
-#    Updated: 2024/08/30 13:46:40 by wmari            ###   ########.fr        #
+#    Updated: 2024/09/02 13:16:10 by wmari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,4 +45,4 @@ fclean	:	clean
 
 re		:	fclean all
 
-.PHONY	:	all clean fclean re% 
+.PHONY	:	all clean fclean re
