@@ -6,7 +6,7 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:41:04 by wmari             #+#    #+#             */
-/*   Updated: 2024/08/30 15:25:25 by wmari            ###   ########.fr       */
+/*   Updated: 2024/09/02 13:03:38 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ public:
 			int num = atoi(arg.c_str());
 			if ((num < UCHAR_MAX && num >= 1) && isprint(num))
 				std::cout << "char:\t'" << static_cast<char>(num) <<"'" << std::endl;
-			else if (num < UCHAR_MAX && num >= 1)
+			else if (num < UCHAR_MAX && num >= 0)
 				std::cout << "char:\tNon displayable" << std::endl;
 			else
 				std::cout << "char:\timpossible" << std::endl;
 			std::cout << "int:\t" << num << std::endl;
-			std::cout << "float:\t" << static_cast<float>(num) << std::endl;
-			std::cout << "double:\t" << static_cast<double>(num) << std::endl;
+			std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(num) << "f" << std::endl;
+			std::cout << std::fixed << std::setprecision(1) << "double:\t" << static_cast<double>(num) << std::endl;
 		}
 		else if (type == FLOAT)
 		{
@@ -110,8 +110,8 @@ public:
 			else
 				std::cout << "char:\timpossible" << std::endl;
 			std::cout << "int:\t" << static_cast<int>(num) << std::endl;
-			std::cout << "float:\t" << num << std::endl;
-			std::cout << "double:\t" << static_cast<double>(num) << std::endl;
+			std::cout << std::fixed << std::setprecision(5) << "float:\t" << num << "f" << std::endl;
+			std::cout << std::fixed << std::setprecision(5) << "double:\t" << static_cast<double>(num) << std::endl;
 		}
 		else if (type == DOUBLE)
 		{
@@ -123,16 +123,16 @@ public:
 			else
 				std::cout << "char:\timpossible" << std::endl;
 			std::cout << "int:\t" << static_cast<int>(num) << std::endl;
-			std::cout << "float:\t" << static_cast<float>(num) << std::endl;
-			std::cout << "double:\t" << num << std::endl;
+			std::cout << std::fixed << std::setprecision(5) << "float:\t" << static_cast<float>(num) << "f" << std::endl;
+			std::cout << std::fixed << std::setprecision(5) << "double:\t" << num << std::endl;
 		}
 		else if (type == CHAR)
 		{
 			char c = arg[0];
 			std::cout << "char:\t'" << c << "'" << std::endl;
 			std::cout << "int:\t" << static_cast<int>(c) << std::endl;
-			std::cout << "float:\t" << static_cast<float>(c) << std::endl;
-			std::cout << "double:\t" << static_cast<double>(c) << std::endl;
+			std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(c) << "f" << std::endl;
+			std::cout << std::fixed << std::setprecision(1) << "double:\t" << static_cast<double>(c) << std::endl;
 		}
 		else if (type == INF)
 		{
