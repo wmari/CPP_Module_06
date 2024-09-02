@@ -6,7 +6,7 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:40:46 by wmari             #+#    #+#             */
-/*   Updated: 2024/09/02 14:52:49 by wmari            ###   ########.fr       */
+/*   Updated: 2024/09/02 15:27:14 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,10 @@ void ScalarConvert::convert(std::string arg)
 	if (type == INT && (atol(arg.c_str()) > INT_MAX && atol(arg.c_str()) < INT_MIN))
 		type = DOUBLE;
 
-	std::cout << std::fixed;
 	if (type == INT)
 	{
 		int num = atoi(arg.c_str());
-		if ((num < UCHAR_MAX && num >= 1) && isprint(num))
+		if ((num < UCHAR_MAX && num >= 0) && isprint(num))
 			std::cout << "char:\t'" << static_cast<char>(num) <<"'" << std::endl;
 		else if (num < UCHAR_MAX && num >= 0)
 			std::cout << "char:\tNon displayable" << std::endl;
@@ -98,28 +97,40 @@ void ScalarConvert::convert(std::string arg)
 	else if (type == FLOAT)
 	{
 		float num = atof(arg.c_str());
-		if ((num < UCHAR_MAX && num >= 1) && isprint(num))
+		int prec;
+		size_t pointpos = arg.find('.');
+		if (pointpos == std::string::npos)
+			prec = 1;
+		else
+			prec = arg.length() - pointpos - 2;
+		if ((num < UCHAR_MAX && num >= 0) && isprint(num))
 			std::cout << "char:\t'" << static_cast<char>(num) <<"'" << std::endl;
-		else if (num < UCHAR_MAX && num >= 1)
+		else if (num < UCHAR_MAX && num >= 0)
 			std::cout << "char:\tNon displayable" << std::endl;
 		else
 			std::cout << "char:\timpossible" << std::endl;
 		std::cout << "int:\t" << static_cast<int>(num) << std::endl;
-		std::cout << std::fixed << std::setprecision(5) << "float:\t" << num << "f" << std::endl;
-		std::cout << std::fixed << std::setprecision(5) << "double:\t" << static_cast<double>(num) << std::endl;
+		std::cout << std::fixed << std::setprecision(prec) << "float:\t" << num << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(prec) << "double:\t" << static_cast<double>(num) << std::endl;
 	}
 	else if (type == DOUBLE)
 	{
 		double num = strtod(arg.c_str(), NULL);
-		if ((num < UCHAR_MAX && num >= 1) && isprint(num))
+		int prec;
+		size_t pointpos = arg.find('.');
+		if (pointpos == std::string::npos)
+			prec = 1;
+		else
+			prec = arg.length() - pointpos - 1;
+		if ((num < UCHAR_MAX && num >= 0) && isprint(num))
 			std::cout << "char:\t'" << static_cast<char>(num) <<"'" << std::endl;
-		else if (num < UCHAR_MAX && num >= 1)
+		else if (num < UCHAR_MAX && num >= 0)
 			std::cout << "char:\tNon displayable" << std::endl;
 		else
 			std::cout << "char:\timpossible" << std::endl;
 		std::cout << "int:\t" << static_cast<int>(num) << std::endl;
-		std::cout << std::fixed << std::setprecision(5) << "float:\t" << static_cast<float>(num) << "f" << std::endl;
-		std::cout << std::fixed << std::setprecision(5) << "double:\t" << num << std::endl;
+		std::cout << std::fixed << std::setprecision(prec) << "float:\t" << static_cast<float>(num) << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(prec) << "double:\t" << num << std::endl;
 	}
 	else if (type == CHAR)
 	{
