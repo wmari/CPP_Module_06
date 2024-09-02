@@ -6,7 +6,7 @@
 /*   By: wmari <wmari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:41:04 by wmari             #+#    #+#             */
-/*   Updated: 2024/09/02 14:50:25 by wmari            ###   ########.fr       */
+/*   Updated: 2024/09/02 15:47:19 by wmari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <climits>
 #include <cctype>
 #include <iomanip>
+#include <cfloat>
 
 
 enum type
